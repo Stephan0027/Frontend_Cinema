@@ -24,7 +24,7 @@ This site uses data fetched from a REST API (created by the course instructor). 
 The project contains of a set of jsx files that are responsible for different parts of the webpage. This is a distinctive react feature that makes it possible to create a webpage in a more modular way. Below the various jsx files are explained.
 
 ### Main.jsx
-This is the **Main.jsx** file the is run and wherin all other components are included. 
+This is the **Main.jsx** file that is run and wherin all other components are included. 
 
 ### App.jsx
 The **App.jsx** is called inside the **Main.jsx**. It includes the main "skeleton" of the webpage which can be seen in the return statement. This is made up of the header and the body. The last one mentioned include route paths to various parts of the webpage. Each one of them is linked to a specific jsx file. 
@@ -32,5 +32,23 @@ The **App.jsx** is called inside the **Main.jsx**. It includes the main "skeleto
 In the **App.jsx** the most important data is fetched from the rest API. This includes the information about all screenings, the movies, tickettypes and the auditoriums. 
 
 ### Movielist.jsx
+The movielist is activated when the visitor first visits the site. Its goal is to visualise all screenings. They are grouped by day (screenings are orderd beforehand when fetching the data from the rest API). 
+
+The **Movielist.js** uses two other react functions to visualise the data. The first is the *DayContainer* which is used for each screening day and contains all the movies that are shown that day. The second function is the *FilterBar* which is used to organise the screenings (filter on different conditions). This one was copied to a seperate file **FilterBar**.jsx. This function uses a useState for the day and one for the category. The DayContainer uses these two attributes to select relevant movies. 
+
+### ScreeningDetail.jsx
+This function is activated when the visitor clicks on one of the movies in the movielist. The visitor is redirected to a specific page containg details of the movie. This page is made up of three seperate components:
+
+#### ScreeningInformation.jsx
+This contains general information about the screening. It uses the urlString to retrieve the correct screening information and visualises this in a frame component.
+
+#### TicketSelection.jsx
+The **TicketSelection.jsx** contains a form wherein the user can specify the tickets he want to purchase. It is dynamically created based on the number of ticket types that are present in the database. It furthermore checks if the requested number of tickets does not exceed the available ones
+
+
+#### SeatSelection.jsx
+Finally the **SeatSelection.jsx** can be run when the user has selected one or more tickets. The user can press a button that will trigger an offcanvas widget containing the **SeatSelection.jsx**. This jsx visualises the auditorium relevant for the screening. Each row and seat is generated using the function *ShowRow*. Each seat has been given a seperate useState that changes based on the action of the user. When a seat is clicked the function *selectAction* is triggered. This will either activate or deactivate a seat. 
+
+When all seats are selected a button appears where the user can confirm his booking. 
 
 
