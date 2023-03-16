@@ -17,20 +17,20 @@ Some basic features needed to be implemented to get a feeling for the useState c
 # Code explanation
 In this section the various components are discussed of the react website.
 
-### Interaction Rest API
+## Interaction Rest API
 This site uses data fetched from a REST API (created by the course instructor). The data was fetched using the fetch-function and was converted from the JSON format. The most important data was fetched when the page was first loaded. This was done in the **App.jsx**. By using *useEffect* it was possible to execute a await/async function correctly. This was needed to properly load the data from the rest API before running any other features/elements. 
 
-### JSX files
+## JSX files
 The project contains of a set of jsx files that are responsible for different parts of the webpage. This is a distinctive react feature that makes it possible to create a webpage in a more modular way. Below the various jsx files are explained.
 
-##### Main.jsx
+### Main.jsx
 This is the **Main.jsx** file the is run and wherin all other components are included. 
 
-##### App.jsx
+### App.jsx
 The **App.jsx** is called inside the **Main.jsx**. It includes the main "skeleton" of the webpage which can be seen in the return statement. This is made up of the header and the body. The last one mentioned include route paths to various parts of the webpage. Each one of them is linked to a specific jsx file. 
 
 In the **App.jsx** the most important data is fetched from the rest API. This includes the information about all screenings, the movies, tickettypes and the auditoriums. 
 
-##### Movielist.jsx
+### Movielist.jsx
 
 
